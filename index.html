@@ -1,449 +1,196 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Review Gallery - Fade-in 6 Columns</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Hữu Nghĩa & Thanh Thảo</title>
     
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
+        :root {
+            --gold: #D4AF37;
+            --cream: #FDFCF0;
+            --dark: #2c2c2c;
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
         body {
-            background-color: #000; /* Nền đen sâu để ảnh nổi bật */
             margin: 0;
-            padding: 10px; /* Thu nhỏ padding để ảnh chiếm nhiều diện tích hơn */
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
             overflow-x: hidden;
         }
-        .gallery-container {
-            column-count: 6; /* TĂNG LÊN 6 ẢNH HÀNG NGANG */
-            column-gap: 8px; /* Khoảng cách giữa các cột ảnh */
-            width: 100%;
-            margin: 0 auto;
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('KTIU2906.JPG'); /* Ảnh bìa Album */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
         }
-        .img-item {
+
+        .hero h3 { font-weight: 300; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; font-size: 14px; }
+        .hero h1 { font-family: 'Dancing Script', cursive; font-size: 5rem; margin: 0; }
+        .hero p { font-size: 1.2rem; margin-top: 20px; font-style: italic; }
+
+        /* --- Section Styling --- */
+        section { padding: 80px 20px; text-align: center; max-width: 1100px; margin: 0 auto; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; }
+        .divider { width: 80px; height: 2px; background: var(--gold); margin: 20px auto; }
+
+        /* --- Wedding Info --- */
+        .info-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+        .date { font-size: 1.5rem; font-weight: 600; color: var(--gold); margin: 20px 0; }
+        .btn-map {
             display: inline-block;
-            width: 100%;
-            margin-bottom: 8px; /* Khoảng cách giữa các hàng ảnh */
-            border-radius: 4px; /* Bo góc nhẹ cho hiện đại */
-            overflow: hidden;
-            border: 0.5px solid #222; /* Viền siêu mỏng để tách ảnh nhẹ */
+            padding: 15px 35px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            margin-top: 20px;
         }
-        img {
-            width: 100%;
-            display: block;
-            height: auto;
+        .btn-map:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+
+        /* --- Gallery Grids --- */
+        .grid { display: grid; gap: 15px; margin-top: 40px; }
+        .gate-grid { grid-template-columns: repeat(2, 1fr); }
+        .table-grid { grid-template-columns: repeat(3, 1fr); }
+        .album-grid { column-count: 6; column-gap: 10px; }
+        
+        .img-wrap { 
+            margin-bottom: 10px; 
+            break-inside: avoid; 
+            overflow: hidden; 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: #eee;
         }
-        /* Hiệu ứng cuộn mượt bằng phím mũi tên hoặc nút cuộn giữa */
-        html {
-            scroll-behavior: smooth;
+        .img-wrap img { width: 100%; display: block; transition: 0.6s; }
+        .img-wrap:hover img { transform: scale(1.08); }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            .gate-grid { grid-template-columns: 1fr; }
+            .table-grid { grid-template-columns: repeat(2, 1fr); }
+            .album-grid { column-count: 2; }
+            section { padding: 50px 15px; }
         }
+
+        footer { padding: 60px 20px; background: #f4f1ea; color: #777; font-size: 14px; letter-spacing: 2px; line-height: 2; }
     </style>
 </head>
 <body>
-    <div class="gallery-container">
 
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2563.JPG">
+    <div class="hero">
+        <div data-aos="fade-down" data-aos-duration="1500">
+            <h3>The Wedding of</h3>
+            <h1>Hữu Nghĩa & Thanh Thảo</h1>
+            <div class="divider" style="background: white;"></div>
+            <p>Sự hiện diện của bạn là món quà ý nghĩa nhất</p>
         </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2593.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2722.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2724.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2746.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2813.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2827.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2838.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2906.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2926.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2989.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2991.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU2993.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3002.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3024.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3060.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3067.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3132.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3146.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3169.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3184.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3198.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3241.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3243.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3247.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3254.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3259.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3269.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3273.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3304.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3305.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3307.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3310.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3311.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3350.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3351.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3359.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3578.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3588.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3600.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3626.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3639.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3657.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3665.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3681.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3698.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3700.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3704.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3707.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3711.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3724.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3727.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3734.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3736.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3737.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3739.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3740.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3752.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3776.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3786.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3805.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3815.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3822.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3829.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3833.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3839.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3842.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3852.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3861.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3863.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3869.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3881.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3904.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3908.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3917.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU3992.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4000.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4004.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4047.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4051.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4054.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4070.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4076.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4082.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4088.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4124.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4133.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4147.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4172.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4175.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4181.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4187.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4190.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4192.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4205.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4231.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4232.JPG">
-        </div>
-    
-        <div class="img-item" data-aos="fade-up" data-aos-duration="600" data-aos-once="false">
-            <img src="KTIU4233.JPG">
-        </div>
-    
     </div>
+
+    <section id="invitation">
+        <div data-aos="fade-up">
+            <h2 class="section-title">Lời Ngỏ</h2>
+            <p>Trân trọng kính mời bạn đến chung vui cùng gia đình chúng tôi</p>
+            <div class="info-card">
+                <div class="date">THỨ BẢY, 10 THÁNG 10 NĂM 2026</div>
+                <p><strong>Lễ Thành Hôn:</strong> 11:00 AM</p>
+                <p><strong>Tiệc Rượu:</strong> 18:00 PM</p>
+                <p><strong>Địa điểm:</strong> [Tên Nhà Hàng]<br>[Địa chỉ chi tiết của bạn]</p>
+                <a href="https://www.google.com/maps" target="_blank" class="btn-map">📍 XEM BẢN ĐỒ ĐƯỜNG ĐI</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #fff;">
+        <h2 class="section-title">Welcome Photos</h2>
+        <div class="divider"></div>
+        <div class="grid gate-grid">
+            <div class="img-wrap" data-aos="fade-right"><img src="KTIU2509.JPG"></div>
+            <div class="img-wrap" data-aos="fade-left"><img src="KTIU3993.JPG"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Gallery Table</h2>
+        <div class="divider"></div>
+        <div class="grid table-grid">
+            <div class="img-wrap" data-aos="zoom-in"><img src="KTIU4231.JPG"></div>
+            <div class="img-wrap" data-aos="zoom-in" data-aos-delay="100"><img src="KTIU3120.JPG"></div>
+            <div class="img-wrap" data-aos="zoom-in" data-aos-delay="200"><img src="KTIU3852.JPG"></div>
+            <div class="img-wrap" data-aos="zoom-in"><img src="KTIU3805.JPG"></div>
+            <div class="img-wrap" data-aos="zoom-in" data-aos-delay="100"><img src="KTIU2804.JPG"></div>
+            <div class="img-wrap" data-aos="zoom-in" data-aos-delay="200"><img src="KTIU3359.JPG"></div>
+        </div>
+    </section>
+
+    <section style="background: #fff; max-width: 100%;">
+        <h2 class="section-title">Our Wedding Album</h2>
+        <div class="divider"></div>
+        <div class="album-grid">
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3600.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3119.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3241.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3192.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3041.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU2993.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU2804.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU2691.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU4231.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU4088.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU4082.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3993.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3852.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3839.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3822.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3698.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3657.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3418.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3359.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3348.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3273.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3200.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU3113.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU2691.JPG"></div>
+            <div class="img-wrap" data-aos="fade-up"><img src="KTIU2836.JPG"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div data-aos="zoom-in">
+            <h2 style="font-family: 'Dancing Script'; color: var(--gold); font-size: 2.5rem; margin-bottom: 10px;">Thank You</h2>
+            HỮU NGHĨA & THANH THẢO<br>
+            Hẹn gặp bạn trong ngày trọng đại của chúng tôi!
+        </div>
+    </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({
-            // Cấu hình bổ sung cho mượt mà:
-            offset: 80, // Hiện ảnh khi nó còn cách cạnh dưới màn hình 80px
-            delay: 0, // Không delay, hiện ảnh ngay lập tức
-            easing: 'ease-out-quad', // Hiệu ứng làm chậm dần mượt mà
-        });
+        AOS.init({ duration: 1000, once: true, offset: 120 });
     </script>
 </body>
 </html>
